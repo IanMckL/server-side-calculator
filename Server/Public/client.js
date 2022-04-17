@@ -1,7 +1,6 @@
 $(document).ready(onReady);
 
 function onReady(){
-    append();
     $('.buttonline').on('click', 'button', buttonFunc)
     $('.opButtons').on('click', 'button', opButtonFunc)
     $('#input1').focus(focusChangeOne);
@@ -23,11 +22,6 @@ let history;
 ////////////////////////////////////////////////////////////////////////////////////
 //Functions
 ////////////////////////////////////////////////////////////////////////////////////
-
-        function append(){ //test configuration of jquery, client.js, CSS, and HTML
-            $('#append').append(`<h2>really hard</h2>`);
-            $('#append').css('color','red');
-        }
         ////////////////////////////////////////////////////////////////////////////////////
         //Function: Number Button Press To Input Field
         ////////////////////////////////////////////////////////////////////////////////////
@@ -135,6 +129,11 @@ function onEnterClick(){
          $('#id').append(`<li data-entry:${entry}>${num1} ${op} ${num2}</li>`)
         }
 
-        $('#big-answer').html(`<h1>Your Answer:${answer}</h1>`)
+        $('#big-answer').html(`<h1>Your Answer:${answer}</h1>`);
+        const utterance = new SpeechSynthesisUtterance(answer);
+        let voices = speechSynthesis.getVoices();
+        utterance.voice = voices[33];
+        speechSynthesis.speak(utterance);
+        console.log(voices)
     })
 }
