@@ -11,15 +11,22 @@ h1{
     border-radius: 20px;
     padding: 5px;
     max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #corn{
   max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  text-align: center;
 }
 
 button{
-    margin: 2px;
-    display: inline-block;
+  font-family: monaco;
+  margin: 2px;
+  display: inline-block;
   padding: 15px 25px;
   font-size: 24px;
   cursor: pointer;
@@ -45,4 +52,10 @@ button:active {
   display: flex;
   justify-content: center;
   
+}
+body{
+    font-family: fantasy;
+}
+html{
+    background-color: pink;
 }

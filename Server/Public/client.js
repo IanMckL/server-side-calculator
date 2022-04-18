@@ -119,16 +119,15 @@ function onEnterClick(){
         history = resObject.history;
         
         let answer = resObject.solution;
-        
+        let index = 0
         $('#id').empty();
-        
         for (entry of history){
             let num1 = entry.num1;
             let num2 = entry.num2;
             let op = entry.operator;
-         $('#id').append(`<li data-entry:${entry}>${num1} ${op} ${num2}</li>`)
+            $('#id').append(`<li data-entry:${index}>${num1} ${op} ${num2}</li>`);
+            index += 1;
         }
-
         $('#big-answer').html(`<h1>Your Answer:${answer}</h1>`);
         const utterance = new SpeechSynthesisUtterance(answer);
         let voices = speechSynthesis.getVoices();
