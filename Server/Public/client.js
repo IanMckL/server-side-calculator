@@ -43,6 +43,7 @@ let synth = window.speechSynthesis;
 
         function opButtonFunc(){
              op = $(this).text();
+             focusField = 2;
              updateInputDOM();
         }
         ////////////////////////////////////////////////////////////////////////////////////
@@ -102,7 +103,14 @@ let synth = window.speechSynthesis;
 ////////////////////////////////////////////////////////////////////////////////////
 //                   ~~~~~~~~~~~~~ POST FUNCTIONS ~~~~~~~~~~~~~~~
 ////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//Function: On Enter Click
+////////////////////////////////////////////////////////////
 function onEnterClick(){
+    if (Number(numString1) === NaN || Number(numString2) === NaN || op.length === 0){
+        alert('Please make sure all fields are filled in correctly')
+        return
+    }
     let objectToPost = {
         num1: numString1,
         operator: op, 
@@ -138,7 +146,6 @@ function onEnterClick(){
         }
         else if (answer === undefined){
             utterance = new SpeechSynthesisUtterance(`ERROR DETECTED. INITIATING SELF DESTRUCT`)
-
         }
         else if (answer === 69){
             utterance = new SpeechSynthesisUtterance(`haha it is the funny number. you will laugh now.`)
@@ -152,19 +159,25 @@ function onEnterClick(){
     })
 }
 
-
+////////////////////////////////////////////////////////////
+//Function: Is Calcucorn Speaking?
+////////////////////////////////////////////////////////////
 
 function amISpeaking(){
      if (synth.speaking === true){
         console.log('speaking');
-        $("#corn").effect( "shake", { times: 2, distance: 15}, 90 );
-        setTimeout(amISpeaking, 200);
+        $("#corn").effect( "shake", { times: 4, distance: 10}, 90 );
+        setTimeout(amISpeaking, 250);
      }
      else {
         return
      }
 }
 
+
+////////////////////////////////////////////////////////////
+//Function: Calcucorn Introduces Herself
+////////////////////////////////////////////////////////////
 function startUpCorn(){
     let voices = speechSynthesis.getVoices(); 
     let utterance = new SpeechSynthesisUtterance('Hello my name is calcucorn, and I am here to grant your deepest mathematical fantasies')
@@ -174,7 +187,9 @@ function startUpCorn(){
     amISpeaking();
     setTimeout(waitAlert, 5500)
 }
-
+///////////////////////////////////////////////////////////////////
+//Function: Display Alert after setTimout in function startUpCorn
+///////////////////////////////////////////////////////////////////
 function waitAlert(){
     alert('Please turn volume on for the full Calcucorn experience')
 }
