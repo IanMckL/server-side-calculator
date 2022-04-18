@@ -133,11 +133,22 @@ function onEnterClick(){
         }
         $('#big-answer').html(`<p>Your Answer:${answer}<p>`);
         let utterance = new SpeechSynthesisUtterance(answer);
+        if(answer === 8){
+        utterance = new SpeechSynthesisUtterance(`You really like that number, don't you? What's so special about 8?`)
+        }
+        else if (answer === undefined){
+            utterance = new SpeechSynthesisUtterance(`ERROR DETECTED. INITIATING SELF DESTRUCT`)
+
+        }
+        else if (answer === 69){
+            utterance = new SpeechSynthesisUtterance(`haha it is the funny number. you will laugh now.`)
+
+        }
         let voices = speechSynthesis.getVoices();
         utterance.voice = voices[33];
         synth.speak(utterance);
         amISpeaking()
-        console.log(voices)
+        
     })
 }
 
@@ -146,7 +157,7 @@ function onEnterClick(){
 function amISpeaking(){
      if (synth.speaking === true){
         console.log('speaking');
-        $("#corn").effect( "shake", { times: 2, distance: 10}, 100 );
+        $("#corn").effect( "shake", { times: 2, distance: 15}, 90 );
         setTimeout(amISpeaking, 200);
      }
      else {
@@ -158,11 +169,13 @@ function startUpCorn(){
     let voices = speechSynthesis.getVoices(); 
     let utterance = new SpeechSynthesisUtterance('Hello my name is calcucorn, and I am here to grant your deepest mathematical fantasies')
     utterance.voice = voices[33];
+    
     synth.speak(utterance);
     amISpeaking();
-    setTimeout(waitAlert, 5000)
+    setTimeout(waitAlert, 5500)
 }
 
 function waitAlert(){
     alert('Please turn volume on for the full Calcucorn experience')
 }
+

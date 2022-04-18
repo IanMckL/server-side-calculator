@@ -4,15 +4,33 @@ h1{
 
 .entire-corn{
    background-color: aliceblue;
+   height: 110vh;
 }
 
-
+.head{
+    background-color: rgb(239, 247, 250);
+    font-size: smaller;
+    border-radius: 5px;
+    height: 25%;
+    margin: 0pz;
+}
+.fancybuttons{
+    display: inline-block;
+}
 .buttonline{
+    height: 30%;
     display: block;
 }
 
+.calculator{
+    display: inline-block;
+    height: 15%;
+}
+
 .calc-block{
-    max-height: 50vw;
+    text-align: center;
+    display: block;
+    height: 70%;
     background-color: gray;
     border-radius: 20px;
     padding: 5px;
@@ -22,6 +40,7 @@ h1{
 }
 
 #corn{
+  position: static;
   width: auto;
   height: 30vh;
   margin-left: auto;
@@ -34,14 +53,14 @@ button{
   font-family: monaco;
   margin: 2px;
   display: inline-block;
-  padding: 15px 25px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #03010d;
+  background-color: #3e3c45;
   border: none;
   border-radius: 15px;
   box-shadow: 0 4px rgb(55, 56, 62);
