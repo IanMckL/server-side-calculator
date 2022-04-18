@@ -2,11 +2,17 @@ h1{
     color: rgb(0, 0, 0)
 }
 
+.entire-corn{
+   background-color: aliceblue;
+}
+
+
 .buttonline{
     display: block;
 }
 
 .calc-block{
+    max-height: 50vw;
     background-color: gray;
     border-radius: 20px;
     padding: 5px;
@@ -16,10 +22,11 @@ h1{
 }
 
 #corn{
-  max-width: 400px;
+  width: auto;
+  height: 30vh;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: block;
   text-align: center;
 }
 
@@ -28,7 +35,7 @@ button{
   margin: 2px;
   display: inline-block;
   padding: 15px 25px;
-  font-size: 24px;
+  font-size: 14px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;

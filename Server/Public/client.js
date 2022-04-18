@@ -1,6 +1,7 @@
 $(document).ready(onReady);
 
 function onReady(){
+    startUpCorn();
     $('.buttonline').on('click', 'button', buttonFunc)
     $('.opButtons').on('click', 'button', opButtonFunc)
     $('#input1').focus(focusChangeOne);
@@ -18,6 +19,8 @@ let numString2 = '';
 let op = '';
 let focusField = 1;
 let history;
+let synth = window.speechSynthesis;
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 //Functions
@@ -128,11 +131,38 @@ function onEnterClick(){
             $('#id').append(`<li data-entry:${index}>${num1} ${op} ${num2}</li>`);
             index += 1;
         }
-        $('#big-answer').html(`<h1>Your Answer:${answer}</h1>`);
-        const utterance = new SpeechSynthesisUtterance(answer);
+        $('#big-answer').html(`<p>Your Answer:${answer}<p>`);
+        let utterance = new SpeechSynthesisUtterance(answer);
         let voices = speechSynthesis.getVoices();
         utterance.voice = voices[33];
-        speechSynthesis.speak(utterance);
+        synth.speak(utterance);
+        amISpeaking()
         console.log(voices)
     })
+}
+
+
+
+function amISpeaking(){
+     if (synth.speaking === true){
+        console.log('speaking');
+        $("#corn").effect( "shake", { times: 2, distance: 10}, 100 );
+        setTimeout(amISpeaking, 200);
+     }
+     else {
+        return
+     }
+}
+
+function startUpCorn(){
+    let voices = speechSynthesis.getVoices(); 
+    let utterance = new SpeechSynthesisUtterance('Hello my name is calcucorn, and I am here to grant your deepest mathematical fantasies')
+    utterance.voice = voices[33];
+    synth.speak(utterance);
+    amISpeaking();
+    setTimeout(waitAlert, 5000)
+}
+
+function waitAlert(){
+    alert('Please turn volume on for the full Calcucorn experience')
 }
