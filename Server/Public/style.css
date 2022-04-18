@@ -5,3 +5,14 @@ h1{
 .buttonline{
     display: block;
 }
+
+.calc-block{
+    background-color: gray;
+    border-radius: 20px;
+    padding: 5px;
+    max-width: 700px;
+}
+
+#corn{
+  max-width: 400px;
+}
