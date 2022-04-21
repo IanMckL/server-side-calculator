@@ -112,3 +112,7 @@ p{
       background-position: 0% 50%;
   }
 }
+
+.coin{
+    max-height: 30vh;
+}

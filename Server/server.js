@@ -46,7 +46,7 @@ function caluculate(x,y,z){
 ////////////////////////////////////////////////////////////
 
 function caluculateMD(x,y,z){
-  if (y === '%'){
+  if (y === '÷'){
       console.log('in division');
       return (Number(x) / Number(z));
   }
